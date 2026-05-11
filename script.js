@@ -382,7 +382,7 @@
   if (form) {
     const btn       = form.querySelector('button[type="submit"]');
     const status    = document.getElementById('quote-form-status');
-    const captcha   = form.querySelector('.cf-turnstile');
+    const captcha   = form.querySelector('.h-captcha');
     const submitTxt = btn ? btn.innerHTML : '';
 
     const t = (key, fallback) => {
@@ -390,10 +390,10 @@
       return (I18N[lang] || I18N[DEFAULT])[key] || fallback;
     };
 
-    // Detect Turnstile script being blocked (ad-blocker, privacy extension, etc.)
+    // Detect CAPTCHA script being blocked (ad-blocker, privacy extension, etc.)
     setTimeout(() => {
-      const loaded  = typeof window.turnstile !== 'undefined';
-      const widgetRendered = captcha && (captcha.querySelector('iframe') || captcha.querySelector('input[name="cf-turnstile-response"]'));
+      const loaded  = typeof window.hcaptcha !== 'undefined';
+      const widgetRendered = captcha && (captcha.querySelector('iframe') || captcha.querySelector('textarea[name="h-captcha-response"]'));
       if (!loaded || !widgetRendered) {
         if (captcha) {
           captcha.innerHTML = '<span class="form__captcha-error">' + t('form.captcha.fail', 'CAPTCHA failed to load.') + '</span>';
@@ -431,7 +431,7 @@
       e.preventDefault();
       if (btn && btn.dataset.busy === '1') return;
 
-      const tokenField = form.querySelector('[name="cf-turnstile-response"]');
+      const tokenField = form.querySelector('[name="h-captcha-response"]');
       const token = tokenField ? tokenField.value : '';
       if (!token) {
         setStatus(t('form.captcha.req', 'Please confirm you’re not a robot.'), 'error');
@@ -444,7 +444,7 @@
       const fd = new FormData(form);
       const payload = { token };
       fd.forEach((v, k) => {
-        if (k === 'cf-turnstile-response') return;
+        if (k === 'h-captcha-response') return;
         payload[k] = v;
       });
 
@@ -463,8 +463,8 @@
       } catch (_) {
         setStatus(t('form.error.send', 'Sending failed.'), 'error');
         setBusy(false);
-        if (window.turnstile) {
-          try { window.turnstile.reset(); } catch (_) { /* noop */ }
+        if (window.hcaptcha) {
+          try { window.hcaptcha.reset(); } catch (_) { /* noop */ }
         }
       }
     });
