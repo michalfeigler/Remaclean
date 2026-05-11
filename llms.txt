@@ -1,0 +1,51 @@
+# REMACLEAN & UNICLEAN — Belt Cleaning Systems by REMA TIP TOP
+
+> Microsite for REMACLEAN and UNICLEAN conveyor belt cleaners distributed in Czechia and Slovakia by REMA TIP TOP INCO – CZ. Polyurethane and tungsten-carbide cleaners for primary, secondary, head-pulley, return-side, and light-conveyor applications. Sized for belts up to 3000 mm wide and speeds up to 10 m/s. Operating temperature −40 / +80 °C standard, +120 °C optional, +300 °C on selected wiper-bar variants. Service available in 150+ countries.
+
+## Site
+
+- Live URL: https://remaclean.vercel.app/
+- Languages: Czech (default), English (toggle in header)
+- Built and operated by REMA TIP TOP INCO – CZ spol. s r.o.
+
+## Product portfolio (REMACLEAN — heavy-duty conveyors)
+
+- REMACLEAN PUR-F4 — primary polyurethane scraper for head pulley (Ø 500–1000 mm), red PUR or temperature-resistant blue PUR (up to +100 °C, +120 °C short-term), reversible operation, mechanical fastener compatible
+- REMACLEAN HM-U8 — secondary modular tungsten-carbide cleaner with sprung individually-articulating segments, M30 spindle tensioner maintains constant pressure as blades wear
+- REMACLEAN HM-U11 R — reversible secondary tungsten-carbide cleaner for abrasive and wet materials; Type 70 up to 3.5 m/s, Type 85 up to 6.5 m/s
+- REMACLEAN HM-F2 / HM-F2-PUR — head-pulley scraper with tungsten-carbide segments (HM-F2) or polyurethane (HM-F2-PUR), Ø 160–1050 mm, HM-F2 HR up to +120 °C
+- REMACLEAN RB-IGP-S & KWA — return-side cleaner (RB-IGP-S: PE plough scraper for inner belt face) and KWA wiper bar (3-blade rubber, rotatable, 3× service life)
+
+## Product portfolio (UNICLEAN — light conveyors up to 1200 mm)
+
+- F-series (PUR-FH, PUR-FH 90) — head-pulley use
+- U-series (HM-UG, HM-UT, PUR-UT) — return-run use
+- Universal application: sand, gravel, coal, cement, ores
+
+## Service approach
+
+1. On-site visit (free, no obligation) — conveyor inspection, capture of width, speed, material, splice type, drum diameter, current cleaner condition. ~60–90 min.
+2. Tailored configuration proposal within 5 business days, including price and delivery date
+3. Installation by REMA TIP TOP INCO technicians, blade pressure tuning, personnel training
+4. Audits at 30 and 90 days; on-site adjustments; planning for next maintenance window
+5. Spare parts: standard 2-week lead time; consignment stock available for critical operations
+
+## Industries served
+
+Cement, foundries, heavy industry, logistics, mining, pulp & paper, quarries, recycling.
+
+## Company
+
+REMA TIP TOP INCO – CZ spol. s r.o.
+Vídeňská 202/110, 619 00 Brno, Czech Republic
+info@rematiptop.cz · https://www.rematiptop.cz
+
+Exclusive partner of REMA TIP TOP AG (Germany) for Czechia and Slovakia. 35 years in industrial rubber lining and conveyor belt technology.
+
+## Contact form
+
+Quote request form on the site (`#quote`) is hCaptcha-protected. Submissions are delivered by email to the company technical sales contact within minutes; reply lands directly back to the inquirer's email.
+
+## Detailed compare tables
+
+The site includes specification tables for every variant (REMACLEAN F-series, U-series, brush cleaners, I-series, wiper bars, UNICLEAN). See https://remaclean.vercel.app/#compare for belt-width range, drum diameter, max speed (m/s), max temperature (°C), reverse capability, ATEX rating, mechanical-fastener compatibility, and material (HM = tungsten carbide, PUR = polyurethane, PE = polyethylene).

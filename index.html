@@ -8,12 +8,29 @@
 <meta name="description" data-i18n-content="meta.description"
   content="Stěrače dopravníkových pásů REMACLEAN a UNICLEAN. Méně prostojů, předvídatelné náklady na údržbu, servis ve 150+ zemích od REMA TIP TOP." />
 <meta name="theme-color" content="#1a1a18" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="REMA TIP TOP INCO – CZ spol. s r.o." />
+<link rel="canonical" href="https://remaclean.vercel.app/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="REMACLEAN & UNICLEAN | REMA TIP TOP" />
+<meta property="og:url" content="https://remaclean.vercel.app/" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:locale:alternate" content="en_US" />
 <meta property="og:title" data-i18n-content="meta.title" content="REMACLEAN & UNICLEAN | Stěrače dopravníkových pásů | REMA TIP TOP" />
-<meta property="og:description" data-i18n-content="meta.description" content="Stěrače a systémy čištění průmyslových dopravníkových pásů. REMA TIP TOP." />
-<meta property="og:image" content="assets/img/hero-conveyor.jpg" />
+<meta property="og:description" data-i18n-content="meta.description" content="Stěrače dopravníkových pásů REMACLEAN a UNICLEAN. Méně prostojů, předvídatelné náklady na údržbu, servis ve 150+ zemích od REMA TIP TOP." />
+<meta property="og:image" content="https://remaclean.vercel.app/assets/img/hero-conveyor.jpg" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="1333" />
+<meta property="og:image:alt" content="Průmyslový dopravníkový pás se stěračem REMACLEAN" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" data-i18n-content="meta.title" content="REMACLEAN & UNICLEAN | Stěrače dopravníkových pásů | REMA TIP TOP" />
+<meta name="twitter:description" data-i18n-content="meta.description" content="Stěrače dopravníkových pásů REMACLEAN a UNICLEAN. Méně prostojů, předvídatelné náklady na údržbu, servis ve 150+ zemích od REMA TIP TOP." />
+<meta name="twitter:image" content="https://remaclean.vercel.app/assets/img/hero-conveyor.jpg" />
+<meta name="twitter:image:alt" content="Průmyslový dopravníkový pás se stěračem REMACLEAN" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,12 +44,123 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "REMACLEAN & UNICLEAN Belt Cleaning Systems",
-  "brand": { "@type": "Brand", "name": "REMA TIP TOP" },
-  "manufacturer": { "@type": "Organization", "name": "REMA TIP TOP AG", "url": "https://www.rema-tiptop.com" },
-  "category": "Conveyor Belt Cleaners",
-  "image": "assets/img/hero-conveyor.jpg"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://remaclean.vercel.app/#organization",
+      "name": "REMA TIP TOP INCO – CZ spol. s r.o.",
+      "url": "https://remaclean.vercel.app/",
+      "logo": "https://remaclean.vercel.app/assets/icons/rtt-logo.svg",
+      "email": "info@rematiptop.cz",
+      "sameAs": [
+        "https://www.rematiptop.cz",
+        "https://www.rema-tiptop.com"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Vídeňská 202/110",
+        "postalCode": "619 00",
+        "addressLocality": "Brno",
+        "addressCountry": "CZ"
+      },
+      "areaServed": ["CZ", "SK"],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "REMA TIP TOP AG",
+        "url": "https://www.rema-tiptop.com"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://remaclean.vercel.app/#website",
+      "url": "https://remaclean.vercel.app/",
+      "name": "REMACLEAN & UNICLEAN | REMA TIP TOP",
+      "publisher": { "@id": "https://remaclean.vercel.app/#organization" },
+      "inLanguage": ["cs-CZ", "en-US"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://remaclean.vercel.app/#webpage",
+      "url": "https://remaclean.vercel.app/",
+      "name": "REMACLEAN & UNICLEAN | Stěrače dopravníkových pásů | REMA TIP TOP",
+      "description": "Stěrače dopravníkových pásů REMACLEAN a UNICLEAN. Méně prostojů, předvídatelné náklady na údržbu, servis ve 150+ zemích od REMA TIP TOP.",
+      "isPartOf": { "@id": "https://remaclean.vercel.app/#website" },
+      "about": { "@id": "https://remaclean.vercel.app/#product-system" },
+      "primaryImageOfPage": { "@id": "https://remaclean.vercel.app/#hero-image" },
+      "inLanguage": "cs-CZ"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://remaclean.vercel.app/#hero-image",
+      "url": "https://remaclean.vercel.app/assets/img/hero-conveyor.jpg",
+      "contentUrl": "https://remaclean.vercel.app/assets/img/hero-conveyor.jpg",
+      "width": 2000,
+      "height": 1333,
+      "caption": "Průmyslový dopravníkový pás se stěračem REMACLEAN"
+    },
+    {
+      "@type": "Product",
+      "@id": "https://remaclean.vercel.app/#product-system",
+      "name": "REMACLEAN & UNICLEAN Belt Cleaning Systems",
+      "description": "Modular belt-cleaning systems (REMACLEAN and UNICLEAN families) for primary and secondary scraping of conveyor belts. Polyurethane and tungsten-carbide variants for belts up to 3000 mm wide and speeds up to 10 m/s.",
+      "brand": { "@type": "Brand", "name": "REMA TIP TOP" },
+      "manufacturer": { "@id": "https://remaclean.vercel.app/#organization" },
+      "category": "Conveyor Belt Cleaners",
+      "image": "https://remaclean.vercel.app/assets/img/hero-conveyor.jpg",
+      "url": "https://remaclean.vercel.app/#products"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://remaclean.vercel.app/#products-list",
+      "name": "REMACLEAN & UNICLEAN product portfolio",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "Product", "name": "REMACLEAN PUR-F4", "category": "Primary belt cleaner (polyurethane)", "url": "https://remaclean.vercel.app/#products", "image": "https://remaclean.vercel.app/assets/img/prod-pur-f.jpg" } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "Product", "name": "REMACLEAN HM-U8", "category": "Secondary belt cleaner (tungsten carbide, modular)", "url": "https://remaclean.vercel.app/#products", "image": "https://remaclean.vercel.app/assets/img/prod-hm-u8.jpg" } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "Product", "name": "REMACLEAN HM-U11 R", "category": "Reversible secondary belt cleaner (tungsten carbide)", "url": "https://remaclean.vercel.app/#products", "image": "https://remaclean.vercel.app/assets/img/prod-hm-u11r.jpg" } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "Product", "name": "REMACLEAN HM-F2 / HM-F2-PUR", "category": "Head-pulley belt cleaner", "url": "https://remaclean.vercel.app/#products", "image": "https://remaclean.vercel.app/assets/img/prod-hm-f2.jpg" } },
+        { "@type": "ListItem", "position": 5, "item": { "@type": "Product", "name": "REMACLEAN RB-IGP-S & KWA", "category": "Return-side cleaners and wiper bars", "url": "https://remaclean.vercel.app/#products", "image": "https://remaclean.vercel.app/assets/img/prod-rb.jpg" } },
+        { "@type": "ListItem", "position": 6, "item": { "@type": "Product", "name": "UNICLEAN", "category": "Light-conveyor belt cleaners", "url": "https://remaclean.vercel.app/#products", "image": "https://remaclean.vercel.app/assets/img/prod-uniclean.jpg" } }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://remaclean.vercel.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jak si vybrat mezi REMACLEAN PUR (polyuretan) a REMACLEAN HM (karbid wolframu)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "REMACLEAN PUR je šetrný k pásu, cenově efektivní a ideální pro primární předčištění vlhkých sypkých materiálů při rychlostech do 3,5 m/s. REMACLEAN HM je správnou volbou pro vysokorychlostní dopravníky (až 6,5 m/s), jemné abrazivní částice, lepivé zbytky a provozy, kde je dlouhá životnost stěrače kritická. Většina provozů kombinuje primární PUR se sekundárním HM stěračem. Právě při kombinaci obou řešení má systém REMACLEAN nejvyšší návratnost. Konkrétní doporučení vám potvrdíme při osobní návštěvě."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Lze REMACLEAN instalovat na náš stávající dopravník?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano. Naše stěrače jsou navrženy tak, aby jejich instalace byla co nejvíce komfortní a maximálně se při ní využívaly stávající technologie. U většiny dopravníků tak odpadá nutnost výroby nových prvků a zbytečné vícepráce. Naši technici vám při návštěvě navrhnou to nejlepší umístění systémů REMACLEAN tak, aby byla jejich stírací schopnost co nejvyšší."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak konkrétně probíhá bezplatná návštěva provozu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Náš technik si s vámi domluví termín, kdy přijede do vašeho provozu, projde s vámi linku, změří vše, co potřebuje (šířka, rychlost a materiál pásu, typ spojů, průměr bubnu, stav stávajících stěračů, stav krycí vrstvy pásu) a do pěti pracovních dní vám zašle konfiguraci stěračů na míru přímo pro váš provoz a předběžnou cenu celého řešení včetně instalace. Návštěva trvá obvykle 60–90 minut a nevyžaduje žádné přípravy z vaší strany."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak rychle jsou k dispozici náhradní díly? Máte je skladem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Náhradní díly máme k dispozici skladem u výrobce a u většiny případů je standardní dodací doba dva týdny od objednání. Pro náročné provozy nabízíme možnost individuální domluvy skladování kritických dílů, které jsou tak okamžitě k dispozici."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -75,7 +203,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero__media">
-    <img src="assets/img/hero-conveyor.jpg" data-i18n-alt="hero.imgAlt" alt="Průmyslový dopravníkový systém" />
+    <img src="assets/img/hero-conveyor.jpg" data-i18n-alt="hero.imgAlt" alt="Průmyslový dopravníkový systém" width="2000" height="1333" fetchpriority="high" decoding="async" />
   </div>
 
   <div class="container">
@@ -442,13 +570,15 @@
       </div>
       <div>
         <h4 data-i18n="foot.h.contact">Kontakt</h4>
-        <ul>
-          <li>REMA&nbsp;TIP&nbsp;TOP INCO &ndash; CZ spol. s&nbsp;r.&nbsp;o.</li>
-          <li>Vídeňská 202/110</li>
-          <li>619 00 Brno, Česká republika</li>
-          <li><a href="mailto:info@rematiptop.cz">info@rematiptop.cz</a></li>
-          <li><a href="https://www.rematiptop.cz" target="_blank" rel="noopener">www.rematiptop.cz</a></li>
-        </ul>
+        <address style="font-style: normal;">
+          <ul>
+            <li>REMA&nbsp;TIP&nbsp;TOP INCO &ndash; CZ spol. s&nbsp;r.&nbsp;o.</li>
+            <li>Vídeňská 202/110</li>
+            <li>619 00 Brno, Česká republika</li>
+            <li><a href="mailto:info@rematiptop.cz">info@rematiptop.cz</a></li>
+            <li><a href="https://www.rematiptop.cz" target="_blank" rel="noopener">www.rematiptop.cz</a></li>
+          </ul>
+        </address>
       </div>
     </div>
     <div class="footer__bottom">
