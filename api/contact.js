@@ -47,9 +47,9 @@ export default async function handler(req, res) {
     _replyto: formData.email || '',
   };
 
-  let formResult;
+  let formRes, formResult, formText;
   try {
-    const formRes = await fetch('https://formsubmit.co/ajax/michal.feigler@rematiptop.cz', {
+    formRes = await fetch('https://formsubmit.co/ajax/michal.feigler@rematiptop.cz', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,14 +59,20 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify(submission),
     });
-    formResult = await formRes.json();
-  } catch {
-    return res.status(502).json({ success: false, error: 'mail_provider_unreachable' });
+    formText = await formRes.text();
+    try { formResult = JSON.parse(formText); } catch { formResult = {}; }
+  } catch (err) {
+    return res.status(502).json({ success: false, error: 'mail_provider_unreachable', detail: String(err) });
   }
 
   const ok = formResult.success === true || formResult.success === 'true';
   if (!ok) {
-    return res.status(502).json({ success: false, error: 'mail_send_failed', detail: formResult.message });
+    return res.status(502).json({
+      success: false,
+      error: 'mail_send_failed',
+      formSubmitStatus: formRes.status,
+      formSubmitBody: formText.slice(0, 500),
+    });
   }
 
   return res.status(200).json({ success: true });
