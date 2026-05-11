@@ -119,9 +119,10 @@
       'form.submit':      'Odeslat poptávku',
       'form.submit.busy': 'Odesílám…',
       'form.legal':       'Obvyklá doba odpovědi: do 5 pracovních dní. Vaše údaje nikdy nesdílíme.',
-      'form.captcha.req': 'Potvrďte prosím, že nejste robot.',
-      'form.error.send':  'Odeslání se nezdařilo. Zkuste to prosím znovu, nebo nás kontaktujte přímo.',
-      'form.success':     'Děkujeme. Ozveme se vám do pěti pracovních dní.',
+      'form.captcha.req':  'Potvrďte prosím, že nejste robot.',
+      'form.captcha.fail': 'Bezpečnostní ověření se nepodařilo načíst. Vypněte prosím blokovače reklam pro tuto stránku, nebo nám napište přímo na michal.feigler@rematiptop.cz.',
+      'form.error.send':   'Odeslání se nezdařilo. Zkuste to prosím znovu, nebo nás kontaktujte přímo.',
+      'form.success':      'Děkujeme. Ozveme se vám do pěti pracovních dní.',
 
       'faq.eyebrow': 'Časté dotazy',
       'faq.h2':      'Nejčastější dotazy, <strong>jasné odpovědi.</strong>',
@@ -258,9 +259,10 @@
       'form.submit':      'Request my quote',
       'form.submit.busy': 'Sending…',
       'form.legal':       'Typical response time: under 5 business days. We’ll never share your details.',
-      'form.captcha.req': 'Please confirm you’re not a robot.',
-      'form.error.send':  'Sending failed. Please try again, or contact us directly.',
-      'form.success':     'Thanks — we’ll get back to you within five business days.',
+      'form.captcha.req':  'Please confirm you’re not a robot.',
+      'form.captcha.fail': 'The security check failed to load. Please disable ad blockers for this page, or contact us directly at michal.feigler@rematiptop.cz.',
+      'form.error.send':   'Sending failed. Please try again, or contact us directly.',
+      'form.success':      'Thanks — we’ll get back to you within five business days.',
 
       'faq.eyebrow': 'Frequently asked',
       'faq.h2':      'Frequently asked, <strong>clearly answered.</strong>',
@@ -380,12 +382,29 @@
   if (form) {
     const btn       = form.querySelector('button[type="submit"]');
     const status    = document.getElementById('quote-form-status');
+    const captcha   = form.querySelector('.cf-turnstile');
     const submitTxt = btn ? btn.innerHTML : '';
 
     const t = (key, fallback) => {
       const lang = document.documentElement.getAttribute('lang') || DEFAULT;
       return (I18N[lang] || I18N[DEFAULT])[key] || fallback;
     };
+
+    // Detect Turnstile script being blocked (ad-blocker, privacy extension, etc.)
+    setTimeout(() => {
+      const loaded  = typeof window.turnstile !== 'undefined';
+      const widgetRendered = captcha && (captcha.querySelector('iframe') || captcha.querySelector('input[name="cf-turnstile-response"]'));
+      if (!loaded || !widgetRendered) {
+        if (captcha) {
+          captcha.innerHTML = '<span class="form__captcha-error">' + t('form.captcha.fail', 'CAPTCHA failed to load.') + '</span>';
+          captcha.dataset.failed = '1';
+        }
+        if (status) {
+          status.textContent = '';
+          status.dataset.state = '';
+        }
+      }
+    }, 5000);
 
     const setStatus = (msg, state) => {
       if (!status) return;
