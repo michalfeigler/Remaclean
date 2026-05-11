@@ -316,7 +316,7 @@
       </ul>
     </div>
 
-    <form class="form fade-up" action="https://formsubmit.co/michal.feigler@rematiptop.cz" method="POST" id="quote-form">
+    <form class="form fade-up" action="/api/contact" method="POST" id="quote-form" novalidate>
       <p class="form__title" data-i18n="form.title">Řekněte nám o vašem dopravníku</p>
 
       <div class="form__row">
@@ -373,8 +373,8 @@
         </label>
       </div>
 
-      <input type="hidden" name="_subject" value="REMACLEAN/UNICLEAN | poptávka">
-      <input type="hidden" name="_captcha" value="true">
+      <div class="cf-turnstile form__captcha" data-sitekey="0x4AAAAAAADNK2Vkc66MRDn5Y" data-theme="light" data-size="flexible"></div>
+      <p class="form__status" id="quote-form-status" role="status" aria-live="polite"></p>
       <button type="submit" class="btn btn--primary"><span data-i18n="form.submit">Odeslat poptávku</span> <span class="arrow">→</span></button>
       <p class="form__legal" data-i18n="form.legal">Obvyklá doba odpovědi: do 5 pracovních dní. Vaše údaje nikdy nesdílíme.</p>
     </form>
@@ -462,6 +462,7 @@
   <a class="btn btn--primary" href="#quote"><span data-i18n="sticky.cta">Nezávazné posouzení provozu</span> <span class="arrow">→</span></a>
 </div>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="script.js"></script>
 </body>
 </html>

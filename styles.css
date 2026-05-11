@@ -920,6 +920,10 @@ p  { margin: 0 0 var(--s-4) 0; }
 .field--checkbox input { width: 18px; height: 18px; flex: 0 0 18px; margin-top: 2px; accent-color: var(--rtt-red); }
 .form button[type="submit"] { width: 100%; justify-content: center; padding: 18px; }
 .form__legal { font-size: 12px; color: var(--rtt-medium-gray); margin-top: var(--s-3); margin-bottom: 0; }
+.form__captcha { margin-top: var(--s-3); display: flex; justify-content: flex-start; min-height: 65px; }
+.form__status { font-size: 13px; margin: var(--s-2) 0 0; min-height: 1.2em; color: var(--rtt-medium-gray); }
+.form__status[data-state="error"] { color: var(--rtt-red); }
+.form__success { font-size: 15px; line-height: 1.5; color: var(--rtt-dark-gray); margin: 0; padding: var(--s-4) 0; }
 
 /* ---------- FAQ ---------- */
 .faq { max-width: 880px; margin: 0 auto; }
