@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ success: false, error: 'missing_captcha_token' });
   }
 
-  const secret = process.env.TURNSTILE_SECRET_KEY;
+  const secret = process.env.HCAPTCHA_SECRET_KEY;
   if (!secret) {
     return res.status(500).json({ success: false, error: 'server_misconfigured' });
   }
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 
   let verifyData;
   try {
-    const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    const verifyRes = await fetch('https://api.hcaptcha.com/siteverify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: verifyParams,
