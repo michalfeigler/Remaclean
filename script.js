@@ -119,6 +119,9 @@
       'form.submit':      'Odeslat poptávku',
       'form.submit.busy': 'Odesílám…',
       'form.legal':       'Obvyklá doba odpovědi: do 5 pracovních dní. Vaše údaje nikdy nesdílíme.',
+      'form.captcha.req': 'Potvrďte prosím, že nejste robot.',
+      'form.error.send':  'Odeslání se nezdařilo. Zkuste to prosím znovu, nebo nás kontaktujte přímo.',
+      'form.success':     'Děkujeme. Ozveme se vám do pěti pracovních dní.',
 
       'faq.eyebrow': 'Časté dotazy',
       'faq.h2':      'Nejčastější dotazy, <strong>jasné odpovědi.</strong>',
@@ -255,6 +258,9 @@
       'form.submit':      'Request my quote',
       'form.submit.busy': 'Sending…',
       'form.legal':       'Typical response time: under 5 business days. We’ll never share your details.',
+      'form.captcha.req': 'Please confirm you’re not a robot.',
+      'form.error.send':  'Sending failed. Please try again, or contact us directly.',
+      'form.success':     'Thanks — we’ll get back to you within five business days.',
 
       'faq.eyebrow': 'Frequently asked',
       'faq.h2':      'Frequently asked, <strong>clearly answered.</strong>',
@@ -369,17 +375,78 @@
     document.querySelectorAll('.fade-up').forEach(el => el.classList.add('is-visible'));
   }
 
-  /* 6. Form busy-state */
+  /* 6. Form: Turnstile CAPTCHA + AJAX submit */
   const form = document.getElementById('quote-form');
   if (form) {
-    form.addEventListener('submit', () => {
-      const btn = form.querySelector('button[type="submit"]');
-      if (btn && btn.dataset.busy !== '1') {
+    const btn       = form.querySelector('button[type="submit"]');
+    const status    = document.getElementById('quote-form-status');
+    const submitTxt = btn ? btn.innerHTML : '';
+
+    const t = (key, fallback) => {
+      const lang = document.documentElement.getAttribute('lang') || DEFAULT;
+      return (I18N[lang] || I18N[DEFAULT])[key] || fallback;
+    };
+
+    const setStatus = (msg, state) => {
+      if (!status) return;
+      status.textContent = msg || '';
+      status.dataset.state = state || '';
+    };
+
+    const setBusy = (busy) => {
+      if (!btn) return;
+      if (busy) {
         btn.dataset.busy = '1';
+        btn.disabled = true;
         btn.style.opacity = '.7';
-        const lang = document.documentElement.getAttribute('lang') || DEFAULT;
-        const busy = (I18N[lang] || I18N[DEFAULT])['form.submit.busy'] || 'Sending…';
-        btn.innerHTML = busy + ' <span class="arrow">→</span>';
+        btn.innerHTML = t('form.submit.busy', 'Sending…') + ' <span class="arrow">→</span>';
+      } else {
+        btn.dataset.busy = '';
+        btn.disabled = false;
+        btn.style.opacity = '';
+        btn.innerHTML = submitTxt;
+      }
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (btn && btn.dataset.busy === '1') return;
+
+      const tokenField = form.querySelector('[name="cf-turnstile-response"]');
+      const token = tokenField ? tokenField.value : '';
+      if (!token) {
+        setStatus(t('form.captcha.req', 'Please confirm you’re not a robot.'), 'error');
+        return;
+      }
+
+      setStatus('', '');
+      setBusy(true);
+
+      const fd = new FormData(form);
+      const payload = { token };
+      fd.forEach((v, k) => {
+        if (k === 'cf-turnstile-response') return;
+        payload[k] = v;
+      });
+
+      try {
+        const res  = await fetch('/api/contact', {
+          method : 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body   : JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          form.innerHTML = '<p class="form__success">' + t('form.success', 'Thanks — we’ll be in touch.') + '</p>';
+          return;
+        }
+        throw new Error(data.error || 'send_failed');
+      } catch (_) {
+        setStatus(t('form.error.send', 'Sending failed.'), 'error');
+        setBusy(false);
+        if (window.turnstile) {
+          try { window.turnstile.reset(); } catch (_) { /* noop */ }
+        }
       }
     });
   }
