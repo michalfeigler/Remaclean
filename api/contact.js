@@ -51,7 +51,12 @@ export default async function handler(req, res) {
   try {
     const formRes = await fetch('https://formsubmit.co/ajax/michal.feigler@rematiptop.cz', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Origin: 'https://remaclean.vercel.app',
+        Referer: 'https://remaclean.vercel.app/',
+      },
       body: JSON.stringify(submission),
     });
     formResult = await formRes.json();
